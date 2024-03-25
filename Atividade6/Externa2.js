@@ -1,0 +1,12 @@
+var n1 = prompt("Digite o primeiro número: ");
+var n2 = prompt("Digite o segundo número: ");
+soma=(parseFloat(n1)+parseFloat(n2));
+alert("A soma é: "+soma);
+subtracao=(parseFloat(n1)-parseFloat(n2));
+alert("A subtração é: "+subtracao);
+produto=(parseFloat(n1)*parseFloat(n2));
+alert("O produto é: "+produto);
+divisao=(parseFloat(n1)+parseFloat(n2));
+alert("A divisão é: "+divisao);
+resto=(parseFloat(n1)%parseFloat(n2));
+alert("O resto da divisão é: "+resto);
