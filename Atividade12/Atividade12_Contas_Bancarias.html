@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas Bancarias - Vitor Munari</title>
+</head>
+<body>
+    <h1>Conta</h1>
+
+    <script>
+        // Definição da classe Conta
+        class Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo) {
+                this.nomeCorrentista = nomeCorrentista;
+                this.banco = banco;
+                this.numeroConta = numeroConta;
+                this.saldo = saldo;
+            }
+
+            // Método get e set
+            getNomeCorrentista() {
+                return this.nomeCorrentista;
+            }
+
+            setNomeCorrentista(nomeCorrentista) {
+                this.nomeCorrentista = nomeCorrentista;
+            }
+
+            getBanco() {
+                return this.banco;
+            }
+
+            setBanco(banco) {
+                this.banco = banco;
+            }
+
+            getNumeroConta() {
+                return this.numeroConta;
+            }
+
+            setNumeroConta(numeroConta) {
+                this.numeroConta = numeroConta;
+            }
+
+            getSaldo() {
+                return this.saldo;
+            }
+
+            setSaldo(saldo) {
+                this.saldo = saldo;
+            }
+        }
+
+        // Subclasse ContaCorrente
+        class ContaCorrente extends Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo, saldoEspecial) {
+                super(nomeCorrentista, banco, numeroConta, saldo);
+                this.saldoEspecial = saldoEspecial;
+            }
+
+            getSaldoEspecial() {
+                return this.saldoEspecial;
+            }
+
+            setSaldoEspecial(saldoEspecial) {
+                this.saldoEspecial = saldoEspecial;
+            }
+        }
+
+        // Subclasse ContaPoupanca
+        class ContaPoupanca extends Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo, juros, dataVencimento) {
+                super(nomeCorrentista, banco, numeroConta, saldo);
+                this.juros = juros;
+                this.dataVencimento = dataVencimento;
+            }
+
+            getJuros() {
+                return this.juros;
+            }
+
+            setJuros(juros) {
+                this.juros = juros;
+            }
+
+            getDataVencimento() {
+                return this.dataVencimento;
+            }
+
+            setDataVencimento(dataVencimento) {
+                this.dataVencimento = dataVencimento;
+            }
+        }
+
+        // Criar objeto de ContaCorrente recebendo os dados pelo prompt
+        var nomeCorrentistaCC = prompt("Digite o nome do correntista da conta corrente:");
+        var bancoCC = prompt("Digite o nome do banco da conta corrente:");
+        var numeroContaCC = prompt("Digite o número da conta corrente:");
+        var saldoCC = parseFloat(prompt("Digite o saldo da conta corrente:"));
+        var saldoEspecial = parseFloat(prompt("Digite o saldo especial da conta corrente:"));
+
+        var contaCorrente = new ContaCorrente(nomeCorrentistaCC, bancoCC, numeroContaCC, saldoCC, saldoEspecial);
+
+        // Criar objeto de ContaPoupanca recebendo os dados pelo prompt
+        var nomeCorrentistaCP = prompt("Digite o nome do correntista da conta poupança:");
+        var bancoCP = prompt("Digite o nome do banco da conta poupança:");
+        var numeroContaCP = prompt("Digite o número da conta poupança:");
+        var saldoCP = parseFloat(prompt("Digite o saldo da conta poupança:"));
+        var juros = parseFloat(prompt("Digite a taxa de juros da conta poupança (em decimal):"));
+        var dataVencimento = prompt("Digite a data de vencimento da conta poupança:");
+
+        var contaPoupanca = new ContaPoupanca(nomeCorrentistaCP, bancoCP, numeroContaCP, saldoCP, juros, dataVencimento);
+
+        // Mostrar os dados das contas no console
+        console.log("Conta Corrente:");
+        console.log("Nome do Correntista:", contaCorrente.getNomeCorrentista());
+        console.log("Banco:", contaCorrente.getBanco());
+        console.log("Número da Conta:", contaCorrente.getNumeroConta());
+        console.log("Saldo:", contaCorrente.getSaldo());
+        console.log("Saldo Especial:", contaCorrente.getSaldoEspecial());
+
+        console.log("Conta Poupança:");
+        console.log("Nome do Correntista:", contaPoupanca.getNomeCorrentista());
+        console.log("Banco:", contaPoupanca.getBanco());
+        console.log("Número da Conta:", contaPoupanca.getNumeroConta());
+        console.log("Saldo:", contaPoupanca.getSaldo());
+        console.log("Juros:", contaPoupanca.getJuros());
+        console.log("Data de Vencimento:", contaPoupanca.getDataVencimento());
+    </script>
+</body>
+</html>
+
