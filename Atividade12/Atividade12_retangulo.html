@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retângulo - Calculadora de área - Vitor Munari</title>
+    <script>
+        // Definição da função construtora para o retângulo, base e altura
+        function Retangulo(base, altura) {
+            this.base = base;
+            this.altura = altura;
+        }
+
+        // Método para calcular a área do retângulo - Base x area
+        Retangulo.prototype.calcularArea = function() {
+            return this.base * this.altura;
+        }
+
+        // Função para ser chamada ao clicar no botão e calcular a Área
+        function calcularAreaRetangulo() {
+            // Obter os valores de base e altura do formulário
+            var base = parseFloat(document.getElementById('base').value);
+            var altura = parseFloat(document.getElementById('altura').value);
+
+            // Instanciar um objeto Retangulo com as dimensões fornecidas
+            var retangulo = new Retangulo(base, altura);
+
+            // Calcular a área do retângulo
+            var area = retangulo.calcularArea();
+
+            // Exibir a área calculada na página
+            document.getElementById('resultado').innerText = "Área do retângulo: " + area;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculo da Área de um Retângulo</h1>
+    <form>
+        <label for="base">Base:</label>
+        <input type="number" id="base" name="base"><br><br>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" name="altura"><br><br>
+        <button type="button" onclick="calcularAreaRetangulo()">Calcular Área</button>
+    </form>
+    <div id="resultado"></div>
+</body>
+</html>
