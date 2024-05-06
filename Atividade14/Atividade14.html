@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividade 14 Vitor Munari</title>
+<script>
+function transformaTexto() {
+    var inputText = document.getElementById("inputText");
+    var upperCaseCheckbox = document.getElementById("upperCaseCheckbox");
+    var lowerCaseCheckbox = document.getElementById("lowerCaseCheckbox");
+
+    if (upperCaseCheckbox.checked) {
+        inputText.value = inputText.value.toUpperCase();
+    }
+
+    if (lowerCaseCheckbox.checked) {
+        inputText.value = inputText.value.toLowerCase();
+    }
+}
+</script>
+</head>
+<body>
+
+<input type="text" id="inputText" oninput="transformaTexto()">
+<label for="upperCaseCheckbox">Transformar em maiúsculas:</label>
+<input type="checkbox" id="upperCaseCheckbox" onchange="transformaTexto()">
+<label for="lowerCaseCheckbox">Transformar em minúsculas:</label>
+<input type="checkbox" id="lowerCaseCheckbox" onchange="transformaTexto()">
+
+</body>
+</html>
