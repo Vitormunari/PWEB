@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Principal - Vitor Munari Atividade 15</title>
+<script>
+function verificarFormulario() {
+    var nome = document.nomeform.nome.value;
+    var email = document.nomeform.email.value;
+    
+    if (nome.length < 20) {
+        alert("O campo Nome deve ter no mínimo 20 caracteres.");
+        return false;
+    }
+    
+    if (email.indexOf("@") === -1) {
+        alert("O campo Email deve conter o caracter '@'.");
+        return false;
+    }
+    
+    var opcao = document.nomeform.opcao.value;
+    
+    if (opcao === "Sim") {
+        alert("Que bom que você voltou a nossa página!");
+    } else if (opcao === "Não") {
+        alert("Volte sempre a esta página!!");
+    } else {
+        alert("Por favor, selecione uma opção para 'Primeira vez nesta página?'.");
+        return false;
+    }
+    
+    return true;
+}
+
+function limparFormulario() {
+    document.nomeform.reset();
+}
+</script>
+</head>
+<body>
+
+<form name="nomeform" onsubmit="return verificarFormulario()">
+    <h2>Formulário Principal</h2>
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" minlength="20" required><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="comentario">Comentário:</label><br>
+    <textarea id="comentario" name="comentario"></textarea><br><br>
+    
+    <strong>Pesquisa</strong><br>
+    <p>Primeira vez nesta página?</p>
+    <input type="radio" id="sim" name="opcao" value="Sim"> <label for="sim">Sim</label>
+    <input type="radio" id="nao" name="opcao" value="Não"> <label for="nao">Não</label><br>
+    
+    <button type="submit">Enviar</button>
+    <button type="button" onclick="limparFormulario()">Limpar</button>
+</form>
+
+</body>
+</html>
