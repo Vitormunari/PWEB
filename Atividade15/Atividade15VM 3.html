@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Principal - Vitor Munari - Atividade 15</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        background-color: #add8e6;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    h2 {
+        color: white;
+    }
+    label {
+        color: black;
+    }
+</style>
+</head>
+<body>
+
+<form name="nomeform" onsubmit="return validarFormulario()">
+    <h2>Formulário Principal</h2>
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" minlength="20" required><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="comentario">Comentário:</label><br>
+    <textarea id="comentario" name="comentario" required></textarea><br><br>
+    
+    <strong>Pesquisa</strong><br>
+    <label for="pesquisa">Primeira vez nesta página?</label><br>
+    <input type="radio" id="sim" name="opcao" value="sim" required>Sim
+    <input type="radio" id="nao" name="opcao" value="nao">Não<br>
+
+    <button type="submit">Enviar</button>
+    <button type="button" onclick="limparCampos()">Limpar</button>
+</form>
+
+<script>
+    function validarFormulario() {
+        var nome = document.nomeform.nome.value;
+        var email = document.nomeform.email.value;
+        var opcao = document.getElementsByName('opcao');
+
+        if (nome.length < 20) {
+            alert("O campo Nome deve ter no mínimo 20 caracteres.");
+            return false;
+        }
+
+        if (email.indexOf('@') === -1) {
+            alert("O campo Email deve conter o caractere '@'.");
+            return false;
+        }
+
+        for (var i = 0; i < opcao.length; i++) {
+            if (opcao[i].checked) {
+                if (opcao[i].value === 'sim') {
+                    alert("Que bom que você voltou a nossa página!");
+                } else if (opcao[i].value === 'nao') {
+                    alert("Volte sempre a esta página!!");
+                }
+                break;
+            }
+        }
+
+        return true;
+    }
+
+    function limparCampos() {
+        document.getElementById("nome").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("comentario").value = "";
+        document.getElementById("sim").checked = false;
+        document.getElementById("nao").checked = false;
+    }
+</script>
+
+</body>
+</html>
